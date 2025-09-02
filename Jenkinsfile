@@ -17,11 +17,8 @@ pipeline {
                 sh '''
                   echo "Deploying Spring Boot app to Kubernetes namespace: $NAMESPACE"
 
-                  kubectl apply -f springboot-deployment.yaml -n $NAMESPACE
-                  kubectl apply -f springboot-service.yaml -n $NAMESPACE
-
-                  kubectl apply -f springboot-hello-deployment.yaml -n $NAMESPACE
-                  kubectl apply -f springboot-hello-service.yaml -n $NAMESPACE
+                  kubectl apply -f springboot-app-deployment.yaml -n $NAMESPACE
+                  kubectl apply -f springboot-app-service.yaml -n $NAMESPACE
 
                   echo "Deployment completed."
                 '''
@@ -29,3 +26,5 @@ pipeline {
         }
     }
 }
+
+
