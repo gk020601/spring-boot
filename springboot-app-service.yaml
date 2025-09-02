@@ -9,6 +9,6 @@ spec:
     app: springboot-app
   ports:
     - protocol: TCP
-      port: 8080       # Service port inside cluster
+      port: 8080       # ClusterIP port
       targetPort: 8080 # Pod port
-      nodePort: 30081  # External port to access from outside
+      nodePort: 30083  # NodePort for external access
