@@ -4,7 +4,7 @@ metadata:
   name: springboot-app
   namespace: koteswararao-namespace
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: springboot-app
@@ -14,7 +14,7 @@ spec:
         app: springboot-app
     spec:
       containers:
-      - name: springboot-app
-        image: koti02/springboot-app:latest
-        ports:
-        - containerPort: 8080
+        - name: springboot-app
+          image: koti02/springboot-app:latest # Replace with your Docker image
+          ports:
+            - containerPort: 8080
