@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-service
+  namespace: koteswararao-namespace
+spec:
+  type: NodePort    # Expose externally using NodePort
+  selector:
+    app: springboot-app   # Must match the Deployment label
+  ports:
+    - protocol: TCP
+      port: 8080          # Service port (cluster-wide)
+      targetPort: 8080    # Forward traffic to Pod containerPort
+      nodePort: 30080     # NodePort (between 30000–32767)

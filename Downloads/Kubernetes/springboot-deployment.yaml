@@ -1,0 +1,20 @@
+apiVersion: apps/v1               # Deployment uses apps/v1 API
+kind: Deployment                  # We are creating a Deployment
+metadata:
+  name: springboot-app            # Name of the Deployment
+  namespace: koteswararao-namespace   # Namespace where app should be deployed
+spec:
+  replicas: 1                     # Run 1 replica (1 Pod)
+  selector:
+    matchLabels:
+      app: springboot-app         # Label used to identify Pods
+  template:                       # Pod template
+    metadata:
+      labels:
+        app: springboot-app       # Pod gets this label
+    spec:
+      containers:                 # Define containers inside Pod
+      - name: springboot-app
+        image: koti02/springboot-app:latest   # Docker image from Docker Hub
+        ports:
+        - containerPort: 8080     # Container listens on port 8080
